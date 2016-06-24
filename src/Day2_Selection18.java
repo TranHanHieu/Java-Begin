@@ -6,9 +6,8 @@ import java.util.Scanner;
 public class Day2_Selection18 {
     public static void main(String[] args) {
         Scanner scanIn= new Scanner(System.in);
-        int nam;
         System.out.println("Nhập năm : ");
-        nam = scanIn.nextInt();
+        int nam = scanIn.nextInt();
         while (nam % 4 ==0 && nam % 100 != 0 || nam % 400 == 0) {
             System.out.println("True !");
             break;
