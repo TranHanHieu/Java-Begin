@@ -7,11 +7,16 @@ public class Day2_Selection18 {
     public static void main(String[] args) {
         Scanner scanIn= new Scanner(System.in);
         System.out.println("Nhập năm :");
+        boolean a = false;
         int nam = scanIn.nextInt();
-        while (nam % 4 ==0 && nam % 100 != 0 || nam % 400 == 0) {
+        while (nam % 4 == 0 && nam % 100 != 0 || nam % 400 == 0) {
             System.out.println("True !");
+            a = true;
             break;
         }
-        System.out.println("False !");
+        while (!a) {
+            System.out.println("False !");
+            break;
+        }
     }
 }
