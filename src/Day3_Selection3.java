@@ -21,14 +21,14 @@ public class Day3_Selection3 {
                 System.out.println("Nhập vào ngày của tháng " + month + " :");
                 day = input.nextInt();
                 while (day < 1 || day > 29) {
-                    System.out.println("Nhập lại ngày của tháng " +month+" :");
+                    System.out.println("Nhập lại ngày của tháng " + month + " :");
                     day = input.nextInt();
                 }
-            }else {
+            } else {
                 System.out.println("Nhập vào ngày của tháng " + month + " :");
                 day = input.nextInt();
                 while (day < 1 || day > 28) {
-                    System.out.println("Nhập lại ngày của tháng " + month + "( năm "+ year + " không là năm nhuận)" + month + " :");
+                    System.out.println("Nhập lại ngày của tháng " + month + "( năm " + year + " không là năm nhuận)" + month + " :");
                     day = input.nextInt();
                 }
             }
