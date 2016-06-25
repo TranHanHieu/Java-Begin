@@ -9,8 +9,8 @@ public class Day2_Selection18 {
     public static void main(String[] args) {
         Scanner scanIn = new Scanner(System.in);
         System.out.println("Nhập năm :");
-        int nam = scanIn.nextInt();
-        boolean a = (nam % 4 == 0 && nam % 100 != 0 || nam % 400 == 0);
+        int year = scanIn.nextInt();
+        boolean a = (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
         System.out.println(a);
     }
 }

@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class Day2_Selection20 {
     public static void main(String[] args) {
         Scanner a = new Scanner(System.in);
-        int b;
         System.out.println("Nhập số (1->11): ");
-        b = a.nextInt();
-        while (b<1||b>11){
+        int b = a.nextInt();
+        while (b < 1 || b > 11) {
             System.out.println("Nhập lại số (1->11): ");
             b = a.nextInt();
         }

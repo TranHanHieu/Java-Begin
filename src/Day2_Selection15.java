@@ -10,10 +10,10 @@ public class Day2_Selection15 {
         System.out.println("Nhập Họ và tên : ");
         String Name = scanIn.nextLine();
         System.out.println("Nhập chiều cao (m): ");
-        double Hight = scanIn.nextDouble();
+        double hight = scanIn.nextDouble();
         System.out.println("Nhập cân nặng (kg) : ");
-        double Weight = scanIn.nextDouble();
-        double BMI = (Weight) / (Hight * Hight);
+        double weight = scanIn.nextDouble();
+        double BMI = (weight) / (hight * hight);
         if (BMI < 18.5) {
             System.out.println(Name + ". Bạn là người thiếu cân, bạn đang quá gầy !");
         } else {
