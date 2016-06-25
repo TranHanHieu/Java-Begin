@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.Scanner;
 
 /**
@@ -5,18 +7,10 @@ import java.util.Scanner;
  */
 public class Day2_Selection18 {
     public static void main(String[] args) {
-        Scanner scanIn= new Scanner(System.in);
+        Scanner scanIn = new Scanner(System.in);
         System.out.println("Nhập năm :");
-        boolean a = false;
         int nam = scanIn.nextInt();
-        while (nam % 4 == 0 && nam % 100 != 0 || nam % 400 == 0) {
-            System.out.println("True !");
-            a = true;
-            break;
-        }
-        while (!a) {
-            System.out.println("False !");
-            break;
-        }
+        boolean a = (nam % 4 == 0 && nam % 100 != 0 || nam % 400 == 0);
+        System.out.println(a);
     }
 }
