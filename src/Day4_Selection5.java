@@ -9,9 +9,9 @@ public class Day4_Selection5 {
         int count = 0;
         int resulf = 0;
         double average = 0;
+        Scanner input = new Scanner(System.in);
+        int[] b = new int[10000];
         while (true) {
-            Scanner input = new Scanner(System.in);
-            int[] b = new int[10000];
             count++;
             for (int i = 0; i < count; i++) {
                 int a = input.nextInt();
