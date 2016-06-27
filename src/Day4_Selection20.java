@@ -10,12 +10,11 @@ public class Day4_Selection20 {
             B[i] = A[A.length - 1 - i];
         }
         System.out.println();
-        System.out.println("chuỗi ngược : ");
+        System.out.println("Chuỗi đảo ngược của chuỗi A là : ");
         for (int i = 0; i < B.length; i++) {
             System.out.print(B[i] + " ");
         }
     }
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập số phần tử chuỗi A : ");
@@ -25,7 +24,7 @@ public class Day4_Selection20 {
             System.out.println("Nhập phần tử thứ " + (i + 1) + " :");
             A[i] = input.next();
         }
-        System.out.println("chuỗi A : ");
+        System.out.println("Chuỗi A là : ");
         for (int i = 0; i < c; i++) {
             System.out.print(A[i] + " ");
         }
