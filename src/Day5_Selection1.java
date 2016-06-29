@@ -5,262 +5,251 @@ import java.util.Scanner;
  */
 public class Day5_Selection1 {
     public static void printMonthTitle(int year, int month) {//tiêu đề lịch
-        String[][] A = new String[4][8];
-        A[1][4] = "\t\t March";
-        A[3][1] = " Sun";
-        A[3][2] = "Mon";
-        A[3][3] = "Tue";
-        A[3][4] = "Wed";
-        A[3][5] = "Thu";
-        A[3][6] = "Fri";
-        A[3][7] = "Sat ";
+        String[][] Title = new String[4][8];
+        Title[1][4] = "\t\t March";
+        Title[3][1] = " Sun";
+        Title[3][2] = "Mon";
+        Title[3][3] = "Tue";
+        Title[3][4] = "Wed";
+        Title[3][5] = "Thu";
+        Title[3][6] = "Fri";
+        Title[3][7] = "Sat ";
         for (int j = 1; j <= 7; j++) {
-            A[2][j] = "----";
+            Title[2][j] = "----";
         }
-        System.out.print(A[1][4] + " " + year);
+        System.out.print(Title[1][4] + " " + year);
         System.out.println();
         for (int j = 1; j <= 7; j++) {
-            System.out.print(A[2][j]);
+            System.out.print(Title[2][j]);
         }
         System.out.println();
         for (int j = 1; j <= 7; j++) {
-            A[2][j] = "-";
-            System.out.print(A[3][j] + " ");
+            Title[2][j] = "-";
+            System.out.print(Title[3][j] + " ");
         }
-        //System.out.println();
-
+        System.out.println();
     }
 
     public static void printMonthBody(int year, int month) {//in thân lịch.
         int h = getStartDay(year, month);
-        System.out.println(h);
-        int k, g;
-        int maxDay = getNumberOfDayInMonth(year, month);
-        System.out.println(maxDay);
-        int[][] B = new int[8][8];
+        int countDay, g;
+        int maxDay = getNumberOfDayInMonth(year, month);//ngày lớn nhất của tháng (28,30,31)
+        int[][] BodyCalendar = new int[8][8];
         switch (h) {
             case 0:
                 //System.out.println("Ngày của tuần là Thứ 7");
-                k = 2;
-                B[0][7] = 1;
-                for (int j = 1; j <= 7; j++) {
-                    System.out.print("  " + B[0][j] + " ");
-                }
-                System.out.println();
+                countDay = 2;
+                g = 1;
                 for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        if (k >= 2 && k <= maxDay) {
-                            B[i][j] = k;
-                            k++;
+                        if (countDay >= 2 && countDay <= maxDay) {
+                            BodyCalendar[i][j] = countDay;
+                            countDay++;
                         }
                     }
                 }
-                for (int j=1;j<=7;j++){
-                    System.out.print("  "+B[1][j]+" ");
+                for (int j = 7; j <= 7; j++) {
+                    BodyCalendar[0][j] = g;
+                    g++;
+                }
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                for (int i = 2; i <= 5; i++) {
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]+ "   " + BodyCalendar[1][5]+ "   " + BodyCalendar[1][6]+ "   " + BodyCalendar[1][7]);
+                System.out.println();
+                System.out.print("  "+ BodyCalendar[2][1]);
+                for (int j = 2; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[2][j] );
+                }
+                System.out.println();
+                for (int i = 3; i <= 5; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        System.out.print(" " + B[i][j] + " ");
+                        System.out.print(" " + BodyCalendar[i][j] + " ");
                     }
                     System.out.println();
                 }
                 break;
             case 1:
                 //System.out.println("Ngày của tuần là thứ CN");
-                /*k = 1;
+                countDay = 1;
                 for (int i = 0; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        if (k >= 1 && k <= maxDay) {
-                            B[i][j] = k;
-                            k++;
+                        if (countDay >= 1 && countDay <= maxDay) {
+                            BodyCalendar[i][j] = countDay;
+                            countDay++;
                         }
                     }
                 }
                 for (int j = 1; j <= 7; j++) {
-                    System.out.print("  " + B[0][j] + " ");
+                    System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                for (int i = 1; i <= 4; i++) {
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2]);
+                for (int j = 3; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[1][j] + "");
+                }
+                System.out.println();
+                for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        System.out.print(" " + B[i][j] + " ");
-                    }
-                    System.out.println();
-                }*/
-                k=1;
-                for (int i=0;i<=7;i++) {
-                    for (int j = 1; j <= 7; j++) {
-                        if(k>=1&&k<=maxDay) {
-                            B[i][j] = k;
-                            k++;
-                        }
-                    }
-                }
-                for (int j= 1;j<=7;j++){
-                    System.out.print("  "+B[0][j]+" ");
-                }
-                System.out.println();
-                System.out.print("  "+B[1][1]+"   "+B[1][2]);
-                for (int j=3;j<=7;j++){
-                    System.out.print("  "+B[1][j]+"");
-                }
-                System.out.println();
-                for (int i= 2;i<=4;i++){
-                    for (int j=1;j<=7;j++){
-                        System.out.print(" "+B[i][j]+" ");
+                        System.out.print(" " + BodyCalendar[i][j] + " ");
                     }
                     System.out.println();
                 }
                 break;
             case 2:
                 //System.out.println("Ngày của tuần là Thứ 2");
-                k = 7;
-                B[0][1] = 0;
-                B[0][2] = 1;
-                B[0][3] = 2;
-                B[0][4] = 3;
-                B[0][5] = 4;
-                B[0][6] = 5;
-                B[0][7] = 6;
+                countDay = 7;
+                g = 1;
                 for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        if (k >= 7 && k <= maxDay) {
-                            B[i][j] = k;
-                            k++;
+                        if (countDay >= 1 && countDay <= maxDay) {
+                            BodyCalendar[i][j] = countDay;
+                            countDay++;
                         }
                     }
                 }
-                for (int j=1;j<=7;j++){
-                    System.out.print("  "+B[0][j]+" ");
+                for (int j = 2; j <= 7; j++) {
+                    BodyCalendar[0][j] = g;
+                    g++;
+                }
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                for (int i = 1; i <= 4; i++) {
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]);
+                for (int j = 4; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[1][j] + "");
+                }
+                System.out.println();
+                for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        System.out.print(" " + B[i][j] + " ");
+                        System.out.print(" " + BodyCalendar[i][j] + " ");
                     }
                     System.out.println();
                 }
                 break;
             case 3:
                 //System.out.println("Ngày của tuần là Thứ 3");
-                k = 6;
+                countDay = 6;
                 g = 1;
-                for (int i = 3; i <= 7; i++) {
-                    B[0][i] = g;
-                    g++;
-                }
                 for (int i = 1; i <= 7; i++) {
-                    System.out.print("  " + B[0][i] + " ");
-                }
-                System.out.println();
-                for (int i = 1; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        if (k >= 6 && k <= maxDay) {
-                            B[i][j] = k;
-                            k++;
+                        if (countDay >= 1 && countDay <= maxDay) {
+                            BodyCalendar[i][j] = countDay;
+                            countDay++;
                         }
                     }
                 }
-                for (int i = 1; i <= 4; i++) {
+                for (int j = 3; j <= 7; j++) {
+                    BodyCalendar[0][j] = g;
+                    g++;
+                }
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[0][j] + " ");
+                }
+                System.out.println();
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]);
+                for (int j = 5; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[1][j] + "");
+                }
+                System.out.println();
+                for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        System.out.print(" " + B[i][j] + " ");
+                        System.out.print(" " + BodyCalendar[i][j] + " ");
                     }
                     System.out.println();
                 }
                 break;
             case 4:
                 //System.out.println("Ngày của tuần là Thứ 4");
-                k = 5;
+                countDay = 5;
                 g = 1;
-                for (int j = 4; j <= 7; j++) {
-                    B[0][j] = g;
-                    g++;
-                }
-                for (int i = 1; i <= 7; i++) {
-                    System.out.print("  " + B[0][i] + " ");
-                }
-                System.out.println();
                 for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        if (k >= 5 && k <= maxDay) {
-                            B[i][j] = k;
-                            k++;
+                        if (countDay >= 5 && countDay <= maxDay) {
+                            BodyCalendar[i][j] = countDay;
+                            countDay++;
                         }
                     }
                 }
-                for (int i = 1; i <= 4; i++) {
+                for (int j = 4; j <= 7; j++) {
+                    BodyCalendar[0][j] = g;
+                    g++;
+                }
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[0][j] + " ");
+                }
+                System.out.println();
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]+ "   " + BodyCalendar[1][5]);
+                for (int j = 6; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[1][j] + "");
+                }
+                System.out.println();
+                for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        System.out.print(" " + B[i][j] + " ");
+                        System.out.print(" " + BodyCalendar[i][j] + " ");
                     }
                     System.out.println();
                 }
                 break;
             case 5:
                 //System.out.println("Ngày của tuần là Thứ 5");
-                k = 4;
+                countDay = 4;
                 g = 1;
-                for (int j = 5; j <= 7; j++) {
-                    B[0][j] = g;
-                    g++;
-                }
-                for (int j = 1; j <= 7; j++) {
-                    System.out.print("  " + B[0][j] + " ");
-                }
-                System.out.println();
-                for (int i = 1; i <= 4; i++) {
+                for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        if (k >= 4 && k <= maxDay) {
-                            B[i][j] = k;
-                            k++;
+                        if (countDay >= 4 && countDay <= maxDay) {
+                            BodyCalendar[i][j] = countDay;
+                            countDay++;
                         }
                     }
                 }
-                for (int i = 1; i < 2; i++) {
-                    for (int j = 1; j <= 7; j++) {
-                        System.out.print("  " + B[i][j] + " ");
-                    }
-                    System.out.println();
+                for (int j = 5; j <= 7; j++) {
+                    BodyCalendar[0][j] = g;
+                    g++;
                 }
-                B[1][7] = 10;
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[0][j] + " ");
+                }
+                System.out.println();
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]+ "   " + BodyCalendar[1][5]+ "   " + BodyCalendar[1][6]);
+                for (int j = 7; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[1][j] + "");
+                }
+                System.out.println();
                 for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        System.out.print(" " + B[i][j] + " ");
+                        System.out.print(" " + BodyCalendar[i][j] + " ");
                     }
                     System.out.println();
                 }
                 break;
             case 6:
                 //System.out.println("Ngày của tuần là Thứ 6");
-                int m = 3;
+                countDay = 10;
                 g = 1;
-                k=10;
-                for (int j = 6; j <= 7; j++) {
-                    B[0][j] = g;
-                    g++;
-                }
-                for (int j = 1; j <= 7; j++) {
-                    B[1][j] = m;
-                    m++;
-                }
-                for (int j = 1; j <= 7; j++) {
-                    System.out.print("  " + B[0][j] + " ");
-                }
-                System.out.println();
-                for (int j = 1; j <= 7; j++) {
-                    System.out.print("  "+B[1][j]+" ");
-                }
-                System.out.println();
-                for (int i = 2; i <= 4; i++) {
+                for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        if (k >= 3 && k <= maxDay) {
-                            B[i][j] = k;
-                            k++;
+                        if (countDay >= 10 && countDay <= maxDay) {
+                            BodyCalendar[i][j] = countDay;
+                            countDay++;
                         }
                     }
                 }
+                for (int j = 6; j <= 7; j++) {
+                    BodyCalendar[0][j] = g;
+                    g++;
+                }
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + BodyCalendar[0][j] + " ");
+                }
+                System.out.println();
+                System.out.print(" " + BodyCalendar[1][1] + "  " + BodyCalendar[1][2] + "  " +BodyCalendar[1][3]+ "  " + BodyCalendar[1][4]+ "  " + BodyCalendar[1][5]+ "  " + BodyCalendar[1][6]+ "  " + BodyCalendar[1][7]);
+                System.out.println();
                 for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        System.out.print(" " + B[i][j] + " ");
+                        System.out.print(" " + BodyCalendar[i][j] + " ");
                     }
                     System.out.println();
                 }
