@@ -43,15 +43,23 @@ public class Day5_Selection1 {
                 //System.out.println("Ngày của tuần là Thứ 7");
                 k = 2;
                 B[0][7] = 1;
-                //System.out.println();
-                //System.out.println(B[0][7] = 1);
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + B[0][j] + " ");
+                }
+                System.out.println();
                 for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        B[i][j] = k;
-                        k++;
+                        if (k >= 2 && k <= maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
                     }
                 }
-                for (int i = 0; i <= 7; i++) {
+                for (int j=1;j<=7;j++){
+                    System.out.print("  "+B[1][j]+" ");
+                }
+                System.out.println();
+                for (int i = 2; i <= 5; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print(" " + B[i][j] + " ");
                     }
@@ -60,17 +68,46 @@ public class Day5_Selection1 {
                 break;
             case 1:
                 //System.out.println("Ngày của tuần là thứ CN");
-                k = 1;
-                //int[][] B = new int[8][8];
-                for (int i = 1; i <= 7; i++) {
+                /*k = 1;
+                for (int i = 0; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        B[i][j] = k;
-                        k++;
+                        if (k >= 1 && k <= maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
                     }
                 }
-                for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + B[0][j] + " ");
+                }
+                System.out.println();
+                for (int i = 1; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print(" " + B[i][j] + " ");
+                    }
+                    System.out.println();
+                }*/
+                k=1;
+                for (int i=0;i<=7;i++) {
+                    for (int j = 1; j <= 7; j++) {
+                        if(k>=1&&k<=maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
+                    }
+                }
+                for (int j= 1;j<=7;j++){
+                    System.out.print("  "+B[0][j]+" ");
+                }
+                System.out.println();
+                System.out.print("  "+B[1][1]+"   "+B[1][2]);
+                for (int j=3;j<=7;j++){
+                    System.out.print("  "+B[1][j]+"");
+                }
+                System.out.println();
+                for (int i= 2;i<=4;i++){
+                    for (int j=1;j<=7;j++){
+                        System.out.print(" "+B[i][j]+" ");
                     }
                     System.out.println();
                 }
@@ -78,21 +115,26 @@ public class Day5_Selection1 {
             case 2:
                 //System.out.println("Ngày của tuần là Thứ 2");
                 k = 7;
-                //int[][] B = new int[8][8];
-                B[0][1]=0;
-                B[0][2]= 1;
-                B[0][3]=2;
-                B[0][4]=3;
-                B[0][5]=4;
-                B[0][6]=5;
-                B[0][7]=6;
+                B[0][1] = 0;
+                B[0][2] = 1;
+                B[0][3] = 2;
+                B[0][4] = 3;
+                B[0][5] = 4;
+                B[0][6] = 5;
+                B[0][7] = 6;
                 for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        B[i][j] = k;
-                        k++;
+                        if (k >= 7 && k <= maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
                     }
                 }
-                for (int i = 0; i <= 7; i++) {
+                for (int j=1;j<=7;j++){
+                    System.out.print("  "+B[0][j]+" ");
+                }
+                System.out.println();
+                for (int i = 1; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print(" " + B[i][j] + " ");
                     }
@@ -102,23 +144,24 @@ public class Day5_Selection1 {
             case 3:
                 //System.out.println("Ngày của tuần là Thứ 3");
                 k = 6;
-                //int[][] B = new int[8][8];
                 g = 1;
                 for (int i = 3; i <= 7; i++) {
                     B[0][i] = g;
                     g++;
                 }
-                System.out.println();
-                for (int i = 3; i <= 7; i++) {
-                    System.out.print(B[0][i] + " ");
-                }
                 for (int i = 1; i <= 7; i++) {
+                    System.out.print("  " + B[0][i] + " ");
+                }
+                System.out.println();
+                for (int i = 1; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        B[i][j] = k;
-                        k++;
+                        if (k >= 6 && k <= maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
                     }
                 }
-                for (int i = 0; i <= 7; i++) {
+                for (int i = 1; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print(" " + B[i][j] + " ");
                     }
@@ -128,23 +171,24 @@ public class Day5_Selection1 {
             case 4:
                 //System.out.println("Ngày của tuần là Thứ 4");
                 k = 5;
-                //int[][] B = new int[8][8];
                 g = 1;
-                for (int i = 4; i <= 7; i++) {
-                    B[0][i] = g;
+                for (int j = 4; j <= 7; j++) {
+                    B[0][j] = g;
                     g++;
                 }
-                System.out.println();
-                for (int i = 2; i <= 7; i++) {
-                    System.out.print(B[0][i] + " ");
+                for (int i = 1; i <= 7; i++) {
+                    System.out.print("  " + B[0][i] + " ");
                 }
+                System.out.println();
                 for (int i = 1; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        B[i][j] = k;
-                        k++;
+                        if (k >= 5 && k <= maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
                     }
                 }
-                for (int i = 0; i <= 7; i++) {
+                for (int i = 1; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print(" " + B[i][j] + " ");
                     }
@@ -154,30 +198,30 @@ public class Day5_Selection1 {
             case 5:
                 //System.out.println("Ngày của tuần là Thứ 5");
                 k = 4;
-                //int[][] B = new int[8][8];
                 g = 1;
-                for (int i = 5; i <= 7; i++) {
-                    B[0][i] = g;
+                for (int j = 5; j <= 7; j++) {
+                    B[0][j] = g;
                     g++;
                 }
-                //System.out.println();
-                for (int i = 1; i <= 7; i++) {
-                    System.out.print("  "+ B[0][i] + " ");
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + B[0][j] + " ");
                 }
                 System.out.println();
-                for (int i = 1; i <= 7; i++) {
+                for (int i = 1; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        B[i][j] = k;
-                        k++;
+                        if (k >= 4 && k <= maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
                     }
                 }
-                for (int i = 1; i <2; i++) {
+                for (int i = 1; i < 2; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print("  " + B[i][j] + " ");
                     }
                     System.out.println();
                 }
-                B[1][7]=10;
+                B[1][7] = 10;
                 for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print(" " + B[i][j] + " ");
@@ -187,23 +231,34 @@ public class Day5_Selection1 {
                 break;
             case 6:
                 //System.out.println("Ngày của tuần là Thứ 6");
-                k = 3;
+                int m = 3;
                 g = 1;
-                for (int i = 6; i <= 7; i++) {
-                    B[0][i] = g;
+                k=10;
+                for (int j = 6; j <= 7; j++) {
+                    B[0][j] = g;
                     g++;
                 }
-                System.out.println();
-                for (int i = 2; i <= 7; i++) {
-                    System.out.print(B[0][i] + " ");
+                for (int j = 1; j <= 7; j++) {
+                    B[1][j] = m;
+                    m++;
                 }
-                for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  " + B[0][j] + " ");
+                }
+                System.out.println();
+                for (int j = 1; j <= 7; j++) {
+                    System.out.print("  "+B[1][j]+" ");
+                }
+                System.out.println();
+                for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
-                        B[i][j] = k;
-                        k++;
+                        if (k >= 3 && k <= maxDay) {
+                            B[i][j] = k;
+                            k++;
+                        }
                     }
                 }
-                for (int i = 0; i <= 7; i++) {
+                for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
                         System.out.print(" " + B[i][j] + " ");
                     }
@@ -244,8 +299,9 @@ public class Day5_Selection1 {
                 } else {
                     days = 28;
                 }
+            } else {
+                days = 30;
             }
-            days = 30;
         }
         return days;
     }
