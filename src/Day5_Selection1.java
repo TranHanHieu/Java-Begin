@@ -37,7 +37,7 @@ public class Day5_Selection1 {
         int[][] BodyCalendar = new int[8][8];
         switch (h) {
             case 0:
-                //System.out.println("Ngày của tuần là Thứ 7");
+                //Ngày của tuần là Thứ 7.
                 countDay = 2;
                 g = 1;
                 for (int i = 1; i <= 7; i++) {
@@ -56,11 +56,11 @@ public class Day5_Selection1 {
                     System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]+ "   " + BodyCalendar[1][5]+ "   " + BodyCalendar[1][6]+ "   " + BodyCalendar[1][7]);
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3] + "   " + BodyCalendar[1][4] + "   " + BodyCalendar[1][5] + "   " + BodyCalendar[1][6] + "   " + BodyCalendar[1][7]);
                 System.out.println();
-                System.out.print("  "+ BodyCalendar[2][1]);
+                System.out.print("  " + BodyCalendar[2][1]);
                 for (int j = 2; j <= 7; j++) {
-                    System.out.print("  " + BodyCalendar[2][j] );
+                    System.out.print("  " + BodyCalendar[2][j]);
                 }
                 System.out.println();
                 for (int i = 3; i <= 5; i++) {
@@ -71,7 +71,7 @@ public class Day5_Selection1 {
                 }
                 break;
             case 1:
-                //System.out.println("Ngày của tuần là thứ CN");
+                //Ngày của tuần là CN.
                 countDay = 1;
                 for (int i = 0; i <= 7; i++) {
                     for (int j = 1; j <= 7; j++) {
@@ -98,7 +98,7 @@ public class Day5_Selection1 {
                 }
                 break;
             case 2:
-                //System.out.println("Ngày của tuần là Thứ 2");
+                //Ngày của tuần là Thứ 2.
                 countDay = 7;
                 g = 1;
                 for (int i = 1; i <= 7; i++) {
@@ -130,7 +130,7 @@ public class Day5_Selection1 {
                 }
                 break;
             case 3:
-                //System.out.println("Ngày của tuần là Thứ 3");
+                //Ngày của tuần là Thứ 3.
                 countDay = 6;
                 g = 1;
                 for (int i = 1; i <= 7; i++) {
@@ -149,7 +149,7 @@ public class Day5_Selection1 {
                     System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]);
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3] + "   " + BodyCalendar[1][4]);
                 for (int j = 5; j <= 7; j++) {
                     System.out.print("  " + BodyCalendar[1][j] + "");
                 }
@@ -162,7 +162,7 @@ public class Day5_Selection1 {
                 }
                 break;
             case 4:
-                //System.out.println("Ngày của tuần là Thứ 4");
+                //Ngày của tuần là Thứ 4.
                 countDay = 5;
                 g = 1;
                 for (int i = 1; i <= 7; i++) {
@@ -181,7 +181,7 @@ public class Day5_Selection1 {
                     System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]+ "   " + BodyCalendar[1][5]);
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3] + "   " + BodyCalendar[1][4] + "   " + BodyCalendar[1][5]);
                 for (int j = 6; j <= 7; j++) {
                     System.out.print("  " + BodyCalendar[1][j] + "");
                 }
@@ -194,7 +194,7 @@ public class Day5_Selection1 {
                 }
                 break;
             case 5:
-                //System.out.println("Ngày của tuần là Thứ 5");
+                //Ngày của tuần là Thứ 5.
                 countDay = 4;
                 g = 1;
                 for (int i = 1; i <= 7; i++) {
@@ -213,7 +213,7 @@ public class Day5_Selection1 {
                     System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3]+ "   " + BodyCalendar[1][4]+ "   " + BodyCalendar[1][5]+ "   " + BodyCalendar[1][6]);
+                System.out.print("  " + BodyCalendar[1][1] + "   " + BodyCalendar[1][2] + "   " + BodyCalendar[1][3] + "   " + BodyCalendar[1][4] + "   " + BodyCalendar[1][5] + "   " + BodyCalendar[1][6]);
                 for (int j = 7; j <= 7; j++) {
                     System.out.print("  " + BodyCalendar[1][j] + "");
                 }
@@ -226,7 +226,7 @@ public class Day5_Selection1 {
                 }
                 break;
             case 6:
-                //System.out.println("Ngày của tuần là Thứ 6");
+                //Ngày của tuần là Thứ 6.
                 countDay = 10;
                 g = 1;
                 for (int i = 1; i <= 7; i++) {
@@ -245,7 +245,7 @@ public class Day5_Selection1 {
                     System.out.print("  " + BodyCalendar[0][j] + " ");
                 }
                 System.out.println();
-                System.out.print(" " + BodyCalendar[1][1] + "  " + BodyCalendar[1][2] + "  " +BodyCalendar[1][3]+ "  " + BodyCalendar[1][4]+ "  " + BodyCalendar[1][5]+ "  " + BodyCalendar[1][6]+ "  " + BodyCalendar[1][7]);
+                System.out.print(" " + BodyCalendar[1][1] + "  " + BodyCalendar[1][2] + "  " + BodyCalendar[1][3] + "  " + BodyCalendar[1][4] + "  " + BodyCalendar[1][5] + "  " + BodyCalendar[1][6] + "  " + BodyCalendar[1][7]);
                 System.out.println();
                 for (int i = 2; i <= 4; i++) {
                     for (int j = 1; j <= 7; j++) {
@@ -307,8 +307,5 @@ public class Day5_Selection1 {
         int month = input.nextInt();
         printMonth(year, month);
         printMonthBody(year, month);
-        //getNumberOfDayInMonth(year,month);
-        //getStartDay(year,month,day);
-        // printMonthBody(year,month,h);
     }
 }
