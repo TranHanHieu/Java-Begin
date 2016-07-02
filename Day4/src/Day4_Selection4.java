@@ -6,7 +6,8 @@ import java.util.Scanner;
  */
 public class Day4_Selection4 {
     public static void main(String[] args) {
-        String choose = " ";
+        String choose ;
+        char ckech;
         do {
             Scanner scanIn = new Scanner(System.in);
             System.out.println("Chương trình tính sự cân bằng giữa chiều cao và cân nặng của một người");
@@ -34,10 +35,8 @@ public class Day4_Selection4 {
             }
             System.out.println("Bạn có muốn tính tiếp không (Y/N)?");
             choose = scanIn.next();
-            if (Objects.equals(choose, "N") || Objects.equals(choose, "n")) {
-                System.out.println("Chương trình kết thúc !");
-                break;
-            }
-        } while (Objects.equals(choose, "Y") || Objects.equals(choose, "y"));
+            ckech = choose.charAt(0);
+        } while (ckech == 'Y' || ckech== 'y');
+        System.out.println("Chương trình kết thúc !");
     }
 }
