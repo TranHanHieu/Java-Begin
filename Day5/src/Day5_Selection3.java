@@ -83,7 +83,7 @@ public class Day5_Selection3 {
         int resulf = 0;
         resulf = sumOfDoubleEvenPlace(number) + sumOfOddPlace(number);
         boolean b = resulf % 10 == 0;
-        if (b&&(getPrefix(number,1)==4||getPrefix(number,1)==5||getPrefix(number,1)==6||getPrefix(number,2)==37)) {
+        if (b && (getPrefix(number, 1) == 4 || getPrefix(number, 1) == 5 || getPrefix(number, 1) == 6 || getPrefix(number, 2) == 37)) {
             System.out.println("Mã thẻ " + number + " hợp lệ !");
         } else {
             System.out.println("Mã thẻ " + number + " không hợp lệ !");
@@ -100,7 +100,7 @@ public class Day5_Selection3 {
             if (number == 0) {
                 break;
             }
-            while ((getSize(number) < 13 || getSize(number) > 16)&&number!=0) {
+            while ((getSize(number) < 13 || getSize(number) > 16) && number != 0) {
                 System.out.println("Nhập lại mã thẻ cần ckech (Nhập 0 để dừng chương trình) :");
                 number = input.nextLong();
             }
