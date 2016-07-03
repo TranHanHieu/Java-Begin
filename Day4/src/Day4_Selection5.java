@@ -16,7 +16,7 @@ public class Day4_Selection5 {
             for (int i = 0; i < count; i++) {
                 int a = input.nextInt();
                 b[i] = a;
-                resulf = b[i] + resulf;
+                resulf = a + resulf;
                 average = (double) resulf / (count + 1);
                 if (a == 0) {
                     System.out.println("Tồng các số nguyên vừa nhập là : " + resulf);
