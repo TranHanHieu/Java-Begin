@@ -5,23 +5,18 @@ import java.util.Scanner;
  */
 public class Day5_Selection4 {
     public static boolean isSorted(int[] array) {
-        boolean a = false;
-        int count = 0;
-        for (int i = 0; i < array.length - 1; i++) {
-            int j = i + 1;
-            if (array[i] < array[j]) {
-                //j=i+1;
-                count++;
+        int temp = array[0];
+        for (int i = 1; i < array.length ; i++) {
+            if (temp > array[i]) {
+                return false;
+            }else {
+                temp=array[i];
             }
         }
-        if (count == array.length - 1) {
-            a = true;
-        }
-        return a;
+        return (temp==array[array.length-1]);
     }
 
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập độ rộng của mảng : ");
         int length = input.nextInt();
