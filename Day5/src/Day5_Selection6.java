@@ -8,7 +8,6 @@ public class Day5_Selection6 {
         char[] arr;
         int index = 0;
         double result = 0;
-        //int a = 0, b = 0;
         Scanner input = new Scanner(System.in);
         String add = input.nextLine();
         arr = add.toCharArray();
