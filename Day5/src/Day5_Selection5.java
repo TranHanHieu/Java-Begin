@@ -32,7 +32,6 @@ public class Day5_Selection5 {
                         break;
                     }
                 }
-                break;
             }
         }
     }
