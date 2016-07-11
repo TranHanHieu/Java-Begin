@@ -18,7 +18,7 @@ public class Actions {
 
     public void importStudent(Student[] student) {
         for (int i = 0; i < length; i++) {
-            System.out.printf("Bạn nhập vào thông tin cho sinh viên thứ %d: ", i + 1);
+            System.out.printf("Nhập vào thông tin cho sinh viên thứ "+ (i + 1)+" :");
             student[i] = new Student();
             student[i].inputStudent();
         }
@@ -40,7 +40,7 @@ public class Actions {
 
     public void addStudent(Student[] student){
         for (int i=length;i<length+add;i++){
-            System.out.printf("Bạn nhập vào thông tin cho sinh viên thứ %d: ", i + 1);
+            System.out.println("Nhập vào thông tin cho sinh viên thứ "+(i + 1)+" :");
             student[i] = new Student();
             student[i].inputStudent();
         }

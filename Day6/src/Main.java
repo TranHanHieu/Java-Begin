@@ -30,7 +30,7 @@ public class Main {
                 case 1:
                     System.out.println("--------Chương trình nhập danh sách Sv---------");
                     do {
-                        System.out.println("Nhập vào số lượng học sinh(0 < n < 100 ): ");
+                        System.out.println("Nhập vào số lượng Sinh Viên(0 < n < 100 ): ");
                         number = input.nextInt();
                     } while (number <= 0 || number >= 100);
                     actions.setLength(number);

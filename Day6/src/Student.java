@@ -79,6 +79,7 @@ public class Student {
 
     public void inputStudent() {
         Scanner input = new Scanner(System.in);
+        System.out.println();
         System.out.println("Nhập tên Sv : ");
         setName(input.next());
         System.out.println("Nhập mã Sv : ");
