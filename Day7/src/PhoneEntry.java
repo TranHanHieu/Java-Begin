@@ -6,6 +6,7 @@ public class PhoneEntry {//một liên lạc trong danh bạ
     public String getName() {
         return name;
     }
+
     public PhoneEntry() {
 
     }
@@ -25,11 +26,13 @@ public class PhoneEntry {//một liên lạc trong danh bạ
     }
 
     private String phoneNumber;
+
     public PhoneEntry(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
-    public String toString(){
-        return this.getName() +"\t "+ this.getPhoneNumber();
+
+    public String toString() {
+        return "\tTên : "+this.getName() + "\t---> " + "Số điện thoại : "+ this.getPhoneNumber();
     }
 }

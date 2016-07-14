@@ -16,7 +16,7 @@ public class PhoneBook {
         return phoneEntries;
     }
 
-    private PhoneEntry[] phoneEntries = new PhoneEntry[500];
+    private PhoneEntry[] phoneEntries = new PhoneEntry[100];
 
     public PhoneBook() {
 
@@ -30,11 +30,10 @@ public class PhoneBook {
 
     public boolean addEntry(PhoneEntry entry) {
 
-        if (!isDuplicateNumber(entry.getPhoneNumber()) && numberOfEntries <= phoneEntries.length) {
+        if (!isDuplicateNumber(entry.getPhoneNumber()) && numberOfEntries < phoneEntries.length) {
             phoneEntries[numberOfEntries] = entry;
             numberOfEntries++;
             return true;
-
         }
         return false;
     }
@@ -73,7 +72,7 @@ public class PhoneBook {
                     ckech = true;
                 }
                 if (ckech) {
-                    if (i!=numberOfEntries-1){
+                    if (i != numberOfEntries - 1) {
                         phoneEntries[i] = phoneEntries[i + 1];
                     }
                     numberOfEntries--;
@@ -84,36 +83,37 @@ public class PhoneBook {
         return false;
     }
 
-    public PhoneEntry findEntryByName(String entryName){//Tìm kiếm liên hệ theo tên
-        for (int i =0;i<numberOfEntries;i++){
-            if (entryName.equals(phoneEntries[i].getName())){
+    public PhoneEntry findEntryByName(String entryName) {//Tìm kiếm liên hệ theo tên
+        for (int i = 0; i < numberOfEntries; i++) {
+            if (entryName.equals(phoneEntries[i].getName())) {
                 return phoneEntries[i];
             }
         }
         return null;
     }
 
-    public PhoneEntry findEntryByNumber(String entryNumber){//Tìm kiếm liên hệ theo số điện thoại
-        for (int i =0;i<numberOfEntries;i++){
-            if (entryNumber.equals(phoneEntries[i].getPhoneNumber())){
+    public PhoneEntry findEntryByNumber(String entryNumber) {//Tìm kiếm liên hệ theo số điện thoại
+        for (int i = 0; i < numberOfEntries; i++) {
+            if (entryNumber.equals(phoneEntries[i].getPhoneNumber())) {
                 return phoneEntries[i];
             }
         }
         return null;
     }
 
-    public String toString(){//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
+    public String toString() {//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
         String str = " ";
-        for (int i=0;i<getNumberOfEntries();i++){
-            str =str+  " \tTên : "+phoneEntries[i].getName() + " --->Số điện thoại :"+phoneEntries[i].getPhoneNumber()+"\n";
+        for (int i = 0; i < getNumberOfEntries(); i++) {
+            str=str +phoneEntries[i].toString();
+            //str = str + " \tTên : " + phoneEntries[i].getName() + " --->Số điện thoại :" + phoneEntries[i].getPhoneNumber() + "\n";
         }
         return str;
     }
 
-    private boolean isDuplicateName(String entryName){//Kiểm tra tên truyền vào đã tồn tại trong danh bạ chưa
-        if (numberOfEntries==0){
-            return  false;
-        }else {
+    private boolean isDuplicateName(String entryName) {//Kiểm tra tên truyền vào đã tồn tại trong danh bạ chưa
+        if (numberOfEntries == 0) {
+            return false;
+        } else {
             for (int i = 0; i < numberOfEntries; i++) {
                 if (phoneEntries[i].getName().equals(entryName)) {
                     return true;
@@ -123,10 +123,10 @@ public class PhoneBook {
         return false;
     }
 
-    private boolean isDuplicateNumber(String entryNumber){//Kiểm tra số truyền vào đã tồn tại trong danh bạ chưa
-        if (numberOfEntries==0){
+    private boolean isDuplicateNumber(String entryNumber) {//Kiểm tra số truyền vào đã tồn tại trong danh bạ chưa
+        if (numberOfEntries == 0) {
             return false;
-        }else {
+        } else {
             for (int i = 0; i < numberOfEntries; i++) {
                 if (phoneEntries[i].getPhoneNumber().equals(entryNumber)) {
                     return true;
