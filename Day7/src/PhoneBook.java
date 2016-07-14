@@ -10,21 +10,27 @@ public class PhoneBook {
         this.numberOfEntries = numberOfEntries;
     }
 
-    private int numberOfEntries=0;
+    private int numberOfEntries = 0;
+
+    public PhoneEntry[] getPhoneEntries() {
+        return phoneEntries;
+    }
+
     private PhoneEntry[] phoneEntries = new PhoneEntry[500];
 
     public PhoneBook() {
 
     }
+
     public int getNumberOfEntries() {
-        return phoneEntries.length;
+        return numberOfEntries;
     }//Trả về số liên lạc hiện có trong danh bạ
 
     Scanner input = new Scanner(System.in);
 
     public boolean addEntry(PhoneEntry entry) {
 
-        if (!isDuplicateNumber(entry.getPhoneNumber()) && numberOfEntries < phoneEntries.length) {
+        if (!isDuplicateNumber(entry.getPhoneNumber()) && numberOfEntries <= phoneEntries.length) {
             phoneEntries[numberOfEntries] = entry;
             numberOfEntries++;
             return true;
@@ -58,22 +64,24 @@ public class PhoneBook {
     }
 
     public boolean deleteEntry(String entryName) {//Xóa một liên hệ trong danh bạ
-        int index;
-        boolean ckech =false;
+        int index = 0;
+        boolean ckech = false;
         if (isDuplicateName(entryName)) {
             for (int i = 0; i < numberOfEntries; i++) {
                 if (phoneEntries[i].getName().equals(entryName)) {
-                    phoneEntries[i] = phoneEntries[i+1];
+                    index = i;
                     ckech = true;
                 }
-                if (ckech){
-                    phoneEntries[i]=phoneEntries[i+1];
+                if (ckech) {
+                    if (i!=numberOfEntries-1){
+                        phoneEntries[i] = phoneEntries[i + 1];
+                    }
+                    numberOfEntries--;
                 }
             }
-        }else {
-            ckech = false;
+            return true;
         }
-        return ckech;
+        return false;
     }
 
     public PhoneEntry findEntryByName(String entryName){//Tìm kiếm liên hệ theo tên
@@ -96,8 +104,8 @@ public class PhoneBook {
 
     public String toString(){//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
         String str = " ";
-        for (int i=0;i<numberOfEntries;i++){
-            str = " Tên : "+phoneEntries[i].getName() + " \tSố điện thoại :"+phoneEntries[i].getPhoneNumber();
+        for (int i=0;i<getNumberOfEntries();i++){
+            str =str+  " \tTên : "+phoneEntries[i].getName() + " --->Số điện thoại :"+phoneEntries[i].getPhoneNumber()+"\n";
         }
         return str;
     }

@@ -51,12 +51,19 @@ public class Actions {
 
     public int delete =0;
 
+    public boolean a = false;
     public void deleteStudent(Student[] student,String code){
+
         for (int i= 0;i<length;i++){
             if ((student[i].getCode()).equals(code)){
                 student[i]=null;
-                student[i]=student[i+1];
+                a=true;
                 delete++;
+            }
+            if (a) {
+                if (i!=(length-1)) {
+                student[i] = student[i + 1];
+                }
             }
         }
     }
