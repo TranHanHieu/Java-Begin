@@ -5,12 +5,13 @@ import java.util.Scanner;
  */
 public class Main {
     static Scanner input = new Scanner(System.in);
-   // private static int numberOfEntries;
+
+    // private static int numberOfEntries;
     public static void main(String[] args) {
         PhoneBook phoneBook = new PhoneBook();
 
-        int choose=0;
-        while (choose!=8){
+        int choose = 0;
+        while (choose != 8) {
             System.out.println("------DANH BẠ ĐIỆN THOẠI-------");
             System.out.println("\t1. Nhập liên hệ.");
             System.out.println("\t2. Thêm một liên hệ.");
@@ -22,26 +23,24 @@ public class Main {
             System.out.println("\t8. Thoát.");
             System.out.println("----->Mời lựa chọn chức năng: ");
             choose = input.nextInt();
-            switch (choose){
+            switch (choose) {
                 case 1:
 
                     System.out.println("-------------Nhập liên hệ-------------");
                     System.out.println("Nhập số lượng liên hệ: ");
                     int number = input.nextInt();
-                    for(int i = 0; i < number; i++) {
-                        PhoneEntry phoneEntry1 = new PhoneEntry();
+                    for (int i = 0; i < number; i++) {
                         input.nextLine();
                         System.out.println("Nhập tên liên hệ: ");
-                        phoneEntry1.setName(input.nextLine());
-                        //input.nextLine();
+                        String nameNumber = input.nextLine();
                         System.out.println("Nhập số điện thoại: ");
-                        phoneEntry1.setPhoneNumber(input.nextLine());
-                        phoneBook.addEntry(phoneEntry1);
-                        /*if (!phoneBook.addEntry(phoneEntry)){
+                        String phoneNumber = input.nextLine();
+                        PhoneEntry phoneEntry1 = new PhoneEntry(nameNumber, phoneNumber);
+                        if (phoneBook.addEntry(phoneEntry1)) {
                             System.out.println("Nhập thành công !");
-                        }else {
+                        } else {
                             System.out.println("Số liên lạc đã tồn tại !");
-                        }*/
+                        }
                     }
                     break;
                 case 2:
@@ -52,28 +51,27 @@ public class Main {
                     phoneEntry2.setName(input.nextLine());
                     System.out.println("Nhập số liên hệ cần thêm :");
                     phoneEntry2.setPhoneNumber(input.nextLine());
-                    phoneBook.addEntry(phoneEntry2);
-                    /*if(phoneBook.addEntry(phoneEntry)){
+                    if (phoneBook.addEntry(phoneEntry2)) {
                         System.out.println("Thêm thành công !");
-                    }else {
+                    } else {
                         System.out.println("Thêm thất bại !");
-                    }*/
+                    }
                     break;
                 case 3:
                     System.out.println("-------------Sửa liên hệ----------------");
-                    int choose1=0;
+                    int choose1 = 0;
                     System.out.println("1. Sửa tên liên hệ.");
                     System.out.println("2. Sửa số liên hệ.");
                     choose1 = input.nextInt();
-                    switch (choose1){
+                    switch (choose1) {
                         case 1:
                             System.out.println("Nhập tên liên hệ cần sửa : ");
                             String entryName = input.next();
                             System.out.println("Nhập tên mới cho liên hệ :");
                             String newName = input.next();
-                            if (phoneBook.modifyEntryName(entryName,newName)){
+                            if (phoneBook.modifyEntryName(entryName, newName)) {
                                 System.out.println("Sửa tên thành công !");
-                            }else {
+                            } else {
                                 System.out.println("Sửa tên thất bại !");
                             }
                             break;
@@ -82,9 +80,9 @@ public class Main {
                             String entryNumber = input.next();
                             System.out.println("Nhập số mới cho liên hệ :");
                             String newNumber = input.next();
-                            if (phoneBook.modifyEntryNumber(entryNumber,newNumber)){
+                            if (phoneBook.modifyEntryNumber(entryNumber, newNumber)) {
                                 System.out.println("Sửa số thành công !");
-                            }else {
+                            } else {
                                 System.out.println("Sửa số thất bại !");
                             }
                             break;
@@ -95,9 +93,9 @@ public class Main {
                     System.out.println("-------------Xóa liên hệ----------------");
                     System.out.println("Nhập tên liên hệ cần xóa :");
                     String nameDetele = input.next();
-                    if (phoneBook.deleteEntry(nameDetele)){
+                    if (phoneBook.deleteEntry(nameDetele)) {
                         System.out.println("Xóa thành công !");
-                    }else {
+                    } else {
                         System.out.println("Xóa thất bại !");
                     }
                     break;
@@ -105,27 +103,17 @@ public class Main {
                     System.out.println("-------------Tìm kiếm liên hệ theo tên-------------");
                     System.out.println("Nhập tên liên hệ cần tìm : ");
                     String findName = input.next();
-                    System.out.println("Liên hệ cần tìm : "+ phoneBook.findEntryByName(findName));
+                    System.out.println("Liên hệ cần tìm : " + phoneBook.findEntryByName(findName));
                     break;
                 case 6:
                     System.out.println("-------------Tìm kiếm liên hệ theo số-------------");
                     System.out.println("Nhập số liên hệ cần tìm : ");
                     String findNumber = input.next();
-                    System.out.println("Liên hệ cần tìm : "+ phoneBook.findEntryByName(findNumber));
+                    System.out.println("Liên hệ cần tìm : " + phoneBook.findEntryByNumber(findNumber));
                     break;
                 case 7:
                     System.out.println("-------------Hiển thị tất cả các liên hệ--------------");
-                   // phoneEntry.toString();
-                    //phoneBook.toString();
-                    //for (int i = 0;i<phoneBook.getNumberOfEntries();i++) {
-                    /*if (phoneBook.getNumberOfEntries() != 0) {
-                        for (int i = 0; i < phoneBook.getNumberOfEntries(); i++) {
-                            System.out.println(phoneBook.getPhoneEntries()[i].toString());
-                        }
-                    }*/
                     System.out.println(phoneBook.toString());
-                    //}
-                    //phoneBook.disp();
                     break;
                 case 8:
                     break;
