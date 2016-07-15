@@ -96,37 +96,31 @@ public class PhoneBook {
     }
 
     public String toString() {//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
-        String str = " ";
+        String resulft = " ";
         for (int i = 0; i < getNumberOfEntries(); i++) {
-            str = str + arrayList.get(i).toString();
+            resulft = resulft + arrayList.get(i).toString();
             //str = str + " \tTên : " + phoneEntries[i].getName() + " --->Số điện thoại :" + phoneEntries[i].getPhoneNumber() + "\n";
         }
-        return str;
+        return resulft;
     }
 
     private boolean isDuplicateName(String entryName) {//Kiểm tra tên truyền vào đã tồn tại trong danh bạ chưa
-        if (numberOfEntries == 0) {
-            return false;
-        } else {
-            for (int i = 0; i < numberOfEntries; i++) {
-                if (arrayList.get(i).getName().equals(entryName)) {
-                    return true;
-                }
+        for (int i = 0; i < numberOfEntries; i++) {
+            if (arrayList.get(i).getName().equals(entryName)) {
+                return true;
             }
         }
+
         return false;
     }
 
     private boolean isDuplicateNumber(String entryNumber) {//Kiểm tra số truyền vào đã tồn tại trong danh bạ chưa
-        if (numberOfEntries == 0) {
-            return false;
-        } else {
-            for (int i = 0; i < numberOfEntries; i++) {
-                if (arrayList.get(i).getPhoneNumber().equals(entryNumber)) {
-                    return true;
-                }
+        for (int i = 0; i < numberOfEntries; i++) {
+            if (arrayList.get(i).getPhoneNumber().equals(entryNumber)) {
+                return true;
             }
         }
+
         return false;
     }
 
