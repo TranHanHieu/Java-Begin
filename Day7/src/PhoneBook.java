@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -10,13 +11,13 @@ public class PhoneBook {
         this.numberOfEntries = numberOfEntries;
     }
 
-    private int numberOfEntries = 0;
+    private int numberOfEntries;
 
     public PhoneEntry[] getPhoneEntries() {
         return phoneEntries;
     }
 
-    private PhoneEntry[] phoneEntries = new PhoneEntry[100];
+    private PhoneEntry[] phoneEntries = new PhoneEntry[numberOfEntries];
 
     public PhoneBook() {
 
@@ -26,13 +27,17 @@ public class PhoneBook {
         return numberOfEntries;
     }//Trả về số liên lạc hiện có trong danh bạ
 
-    Scanner input = new Scanner(System.in);
-
     public boolean addEntry(PhoneEntry entry) {
 
-        if (!isDuplicateNumber(entry.getPhoneNumber()) && numberOfEntries < phoneEntries.length) {
-            phoneEntries[numberOfEntries] = entry;
+        if (!isDuplicateNumber(entry.getPhoneNumber())) {
+            PhoneEntry[] newPhoneEntry = new PhoneEntry[phoneEntries.length + 1];
+            for (int i = 0; i < phoneEntries.length; i++) {
+                newPhoneEntry[i] = phoneEntries[i];
+            }
+            newPhoneEntry[phoneEntries.length] = entry;
             numberOfEntries++;
+            phoneEntries = newPhoneEntry;
+            //System.out.println(Arrays.toString(phoneEntries));
             return true;
         }
         return false;
@@ -63,21 +68,15 @@ public class PhoneBook {
     }
 
     public boolean deleteEntry(String entryName) {//Xóa một liên hệ trong danh bạ
-        int index = 0;
-        boolean ckech = false;
         if (isDuplicateName(entryName)) {
             for (int i = 0; i < numberOfEntries; i++) {
                 if (phoneEntries[i].getName().equals(entryName)) {
-                    index = i;
-                    ckech = true;
-                }
-                if (ckech) {
-                    if (i != numberOfEntries - 1) {
-                        phoneEntries[i] = phoneEntries[i + 1];
+                    for (int j = i + 1; j < numberOfEntries; i++) {
+                        phoneEntries[j - 1] = phoneEntries[j];
                     }
-                    numberOfEntries--;
                 }
             }
+            numberOfEntries--;
             return true;
         }
         return false;
@@ -102,35 +101,27 @@ public class PhoneBook {
     }
 
     public String toString() {//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
-        String str = " ";
-        for (int i = 0; i < getNumberOfEntries(); i++) {
-            str=str +phoneEntries[i].toString();
-            //str = str + " \tTên : " + phoneEntries[i].getName() + " --->Số điện thoại :" + phoneEntries[i].getPhoneNumber() + "\n";
+        String resulft = " ";
+        for (int i = 0; i < phoneEntries.length; i++) {
+            resulft = resulft + phoneEntries[i].toString();
         }
-        return str;
+        return resulft;
     }
 
     private boolean isDuplicateName(String entryName) {//Kiểm tra tên truyền vào đã tồn tại trong danh bạ chưa
-        if (numberOfEntries == 0) {
-            return false;
-        } else {
-            for (int i = 0; i < numberOfEntries; i++) {
-                if (phoneEntries[i].getName().equals(entryName)) {
-                    return true;
-                }
+        for (int i = 0; i < numberOfEntries; i++) {
+            if (phoneEntries[i].getName().equals(entryName)) {
+                return true;
             }
         }
+
         return false;
     }
 
     private boolean isDuplicateNumber(String entryNumber) {//Kiểm tra số truyền vào đã tồn tại trong danh bạ chưa
-        if (numberOfEntries == 0) {
-            return false;
-        } else {
-            for (int i = 0; i < numberOfEntries; i++) {
-                if (phoneEntries[i].getPhoneNumber().equals(entryNumber)) {
-                    return true;
-                }
+        for (int i = 0; i < numberOfEntries; i++) {
+            if (phoneEntries[i].getPhoneNumber().equals(entryNumber)) {
+                return true;
             }
         }
         return false;

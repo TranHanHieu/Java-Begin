@@ -29,8 +29,9 @@ public class Main {
                     System.out.println("-------------Nhập liên hệ-------------");
                     System.out.println("Nhập số lượng liên hệ: ");
                     int number = input.nextInt();
+                    input.nextLine();
                     for (int i = 0; i < number; i++) {
-                        input.nextLine();
+
                         System.out.println("Nhập tên liên hệ: ");
                         String nameNumber = input.nextLine();
                         System.out.println("Nhập số điện thoại: ");
