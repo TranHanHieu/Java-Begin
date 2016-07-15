@@ -17,7 +17,6 @@ public class Day5_Selection5 {
                 for (int k = 0; k < count; k++) {
                     count1 = 1;
                     for (int j = k + 1; j < count; j++) {
-
                         if (arr[k] == arr[j] && arr[k] != temp) {
                             count1++;
                         }
