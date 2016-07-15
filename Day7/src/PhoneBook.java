@@ -30,11 +30,11 @@ public class PhoneBook {
     public boolean addEntry(PhoneEntry entry) {
 
         if (!isDuplicateNumber(entry.getPhoneNumber())) {
-            PhoneEntry[] newPhoneEntry = new PhoneEntry[phoneEntries.length + 1];
-            for (int i = 0; i < phoneEntries.length; i++) {
+            PhoneEntry[] newPhoneEntry = new PhoneEntry[numberOfEntries + 1];
+            for (int i = 0; i < numberOfEntries; i++) {
                 newPhoneEntry[i] = phoneEntries[i];
             }
-            newPhoneEntry[phoneEntries.length] = entry;
+            newPhoneEntry[numberOfEntries] = entry;
             numberOfEntries++;
             phoneEntries = newPhoneEntry;
             //System.out.println(Arrays.toString(phoneEntries));
@@ -103,7 +103,7 @@ public class PhoneBook {
     public String toString() {//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
         String resulft = " ";
         for (int i = 0; i < phoneEntries.length; i++) {
-            resulft = resulft + phoneEntries[i].toString();
+            resulft = resulft + phoneEntries[i].toString()+"\n";
         }
         return resulft;
     }
