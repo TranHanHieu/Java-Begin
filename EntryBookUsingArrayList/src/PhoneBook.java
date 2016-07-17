@@ -5,12 +5,8 @@ import java.util.ArrayList;
  * Created by Hieu It on 7/11/2016.
  */
 public class PhoneBook {
-    private int numberOfEntries = 0;
+    private int numberOfEntries;
     private ArrayList<PhoneEntry> arrayList = new ArrayList<>();
-
-    public void setNumberOfEntries(int numberOfEntries) {
-        this.numberOfEntries = numberOfEntries;
-    }
 
     public ArrayList<PhoneEntry> getArrayList() {
         return arrayList;
@@ -36,7 +32,7 @@ public class PhoneBook {
 
     public boolean modifyEntryName(String oldName, String newName) {//Sửa tên một liên hệ trong danh dạ
         if (isDuplicateName(oldName)) {
-            for (int i = 0; i < numberOfEntries; i++) {
+            for (int i = 0; i < getNumberOfEntries(); i++) {
                 if ((oldName.equals(arrayList.get(i).getName()))) {
                     arrayList.get(i).setName(newName);
                     return true;
@@ -48,7 +44,7 @@ public class PhoneBook {
 
     public boolean modifyEntryNumber(String entryNumber, String newNumber) {//Sửa số điện thoại của liên hệ trong danh bạ
         if (isDuplicateNumber(entryNumber)) {
-            for (int i = 0; i < numberOfEntries; i++) {
+            for (int i = 0; i < getNumberOfEntries(); i++) {
                 if (entryNumber.equals(arrayList.get(i).getPhoneNumber())) {
                     arrayList.get(i).setPhoneNumber(newNumber);
                     return true;
@@ -60,7 +56,7 @@ public class PhoneBook {
 
     public boolean deleteEntry(String entryName) {//Xóa một liên hệ trong danh bạ
         if (isDuplicateName(entryName)) {
-            for (int i = 0; i < numberOfEntries; i++) {
+            for (int i = 0; i < getNumberOfEntries(); i++) {
                 if (arrayList.get(i).getName().equals(entryName)) {
                     arrayList.remove(i);
                     numberOfEntries--;
@@ -72,7 +68,7 @@ public class PhoneBook {
     }
 
     public PhoneEntry findEntryByName(String entryName) {//Tìm kiếm liên hệ theo tên
-        for (int i = 0; i < numberOfEntries; i++) {
+        for (int i = 0; i < getNumberOfEntries(); i++) {
             if (entryName.equals(arrayList.get(i).getName())) {
                 return arrayList.get(i);
             }
@@ -81,7 +77,7 @@ public class PhoneBook {
     }
 
     public PhoneEntry findEntryByNumber(String entryNumber) {//Tìm kiếm liên hệ theo số điện thoại
-        for (int i = 0; i < numberOfEntries; i++) {
+        for (int i = 0; i < getNumberOfEntries(); i++) {
             if (entryNumber.equals(arrayList.get(i).getPhoneNumber())) {
                 return arrayList.get(i);
             }
@@ -98,7 +94,7 @@ public class PhoneBook {
     }
 
     private boolean isDuplicateName(String entryName) {//Kiểm tra tên truyền vào đã tồn tại trong danh bạ chưa
-        for (int i = 0; i < numberOfEntries; i++) {
+        for (int i = 0; i < getNumberOfEntries(); i++) {
             if (arrayList.get(i).getName().equals(entryName)) {
                 return true;
             }
@@ -107,7 +103,7 @@ public class PhoneBook {
     }
 
     private boolean isDuplicateNumber(String entryNumber) {//Kiểm tra số truyền vào đã tồn tại trong danh bạ chưa
-        for (int i = 0; i < numberOfEntries; i++) {
+        for (int i = 0; i < getNumberOfEntries(); i++) {
             if (arrayList.get(i).getPhoneNumber().equals(entryNumber)) {
                 return true;
             }
