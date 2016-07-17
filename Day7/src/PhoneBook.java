@@ -103,7 +103,7 @@ public class PhoneBook {
     public String toString() {//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
         String resulft = " ";
         for (int i = 0; i < numberOfEntries; i++) {
-            resulft = resulft + phoneEntries[i].toString()+"\n";
+            resulft = resulft + phoneEntries[i].toString() + "\n";
         }
         return resulft;
     }
