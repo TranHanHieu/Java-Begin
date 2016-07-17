@@ -6,10 +6,8 @@ import java.util.Scanner;
 public class Main {
     static Scanner input = new Scanner(System.in);
 
-    // private static int numberOfEntries;
     public static void main(String[] args) {
         PhoneBook phoneBook = new PhoneBook();
-
         int choose = 0;
         while (choose != 8) {
             System.out.println("------DANH BẠ ĐIỆN THOẠI-------");
@@ -25,7 +23,6 @@ public class Main {
             choose = input.nextInt();
             switch (choose) {
                 case 1:
-
                     System.out.println("-------------Nhập liên hệ-------------");
                     System.out.println("Nhập số lượng liên hệ: ");
                     int number = input.nextInt();
@@ -58,8 +55,8 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("-------------Sửa liên hệ----------------");
                     int choose1 = 0;
+                    System.out.println("-------------Sửa liên hệ----------------");
                     System.out.println("1. Sửa tên liên hệ.");
                     System.out.println("2. Sửa số liên hệ.");
                     choose1 = input.nextInt();
@@ -86,7 +83,6 @@ public class Main {
                                 System.out.println("Sửa số thất bại !");
                             }
                             break;
-
                     }
                     break;
                 case 4:

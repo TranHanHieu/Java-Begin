@@ -30,6 +30,6 @@ public class PhoneEntry {
     }
 
     public String toString() {
-        return "\tTên : "+this.getName() + "\t---> " + "Số điện thoại : "+ this.getPhoneNumber();
+        return "\tTên : " + this.getName() + "\t---> " + "Số điện thoại : " + this.getPhoneNumber();
     }
 }

@@ -5,20 +5,16 @@ import java.util.ArrayList;
  * Created by Hieu It on 7/11/2016.
  */
 public class PhoneBook {
-
+    private int numberOfEntries = 0;
+    private ArrayList<PhoneEntry> arrayList = new ArrayList<>();
 
     public void setNumberOfEntries(int numberOfEntries) {
         this.numberOfEntries = numberOfEntries;
     }
 
-    private int numberOfEntries = 0;
-
-
     public ArrayList<PhoneEntry> getArrayList() {
         return arrayList;
     }
-
-    private ArrayList<PhoneEntry> arrayList = new ArrayList<>();
 
     public PhoneBook() {
 
@@ -27,8 +23,6 @@ public class PhoneBook {
     public int getNumberOfEntries() {
         return numberOfEntries;
     }//Trả về số liên lạc hiện có trong danh bạ
-
-    Scanner input = new Scanner(System.in);
 
     public boolean addEntry(PhoneEntry entry) {
 
@@ -99,7 +93,6 @@ public class PhoneBook {
         String resulft = " ";
         for (int i = 0; i < getNumberOfEntries(); i++) {
             resulft = resulft + arrayList.get(i).toString();
-            //str = str + " \tTên : " + phoneEntries[i].getName() + " --->Số điện thoại :" + phoneEntries[i].getPhoneNumber() + "\n";
         }
         return resulft;
     }
@@ -110,7 +103,6 @@ public class PhoneBook {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -120,7 +112,6 @@ public class PhoneBook {
                 return true;
             }
         }
-
         return false;
     }
 
