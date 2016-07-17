@@ -71,7 +71,7 @@ public class PhoneBook {
         if (isDuplicateName(entryName)) {
             for (int i = 0; i < numberOfEntries; i++) {
                 if (phoneEntries[i].getName().equals(entryName)) {
-                    for (int j = i + 1; j < numberOfEntries; i++) {
+                    for (int j = i + 1; j < numberOfEntries; j++) {
                         phoneEntries[j - 1] = phoneEntries[j];
                     }
                 }
@@ -102,7 +102,7 @@ public class PhoneBook {
 
     public String toString() {//Trả về một chuỗi chứa thông tin của tất cả các liên hệ trong danh bạ
         String resulft = " ";
-        for (int i = 0; i < phoneEntries.length; i++) {
+        for (int i = 0; i < numberOfEntries; i++) {
             resulft = resulft + phoneEntries[i].toString()+"\n";
         }
         return resulft;
@@ -128,4 +128,3 @@ public class PhoneBook {
     }
 
 }
-
