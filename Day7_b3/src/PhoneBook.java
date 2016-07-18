@@ -139,7 +139,6 @@ public class PhoneBook {
     private boolean isDuplicateNumber(ArrayList entryNumber) {//Kiểm tra số truyền vào đã tồn tại trong danh bạ chưa
         for (int i = 0; i < numberOfEntries; i++) {
             for (int j = 0; j < findEntryByNumber(entryNumber).getPhoneNumber().size(); j++) {
-                System.out.println("hi");
                 if (phoneEntries[i].getPhoneNumber().get(j).equals(entryNumber.get(0))) {
                     return true;
                 }
