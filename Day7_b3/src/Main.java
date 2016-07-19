@@ -41,14 +41,16 @@ public class Main {
                     break;
 
                 case 2:
+                    PhoneEntry phoneEntry2 = new PhoneEntry();
                     ArrayList inputPhoneNumber1 = new ArrayList();
                     System.out.println("-------------Thêm số điên thoại vào 1 liên hệ-------------");
                     input.nextLine();
                     System.out.println("Nhập tên liên hệ muốn thêm số điện thoại : ");
-                    String nameNumber = input.nextLine();
+                    phoneEntry2.setName(input.nextLine());
                     System.out.println("Nhập số điện thoại cần thêm : ");
                     inputPhoneNumber1.add(0, input.nextLine());
-                    if (phoneBook.addPhoneNumber(nameNumber,inputPhoneNumber1)){
+                    phoneEntry2.setPhoneNumber(inputPhoneNumber1);
+                    if (phoneBook.addEntry(phoneEntry2)){
                         System.out.println("Thêm thành công !");
                     }else {
                         System.out.println("Tên không tồn tại !");
