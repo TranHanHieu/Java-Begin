@@ -38,18 +38,14 @@ public class PhoneBook {
             phoneEntries = newPhoneEntry;
             return true;
         }
-        return false;
-    }
-
-    public boolean addPhoneNumber(String nameAddPhone, ArrayList numberAddPhone) {//thêm số điện thoại vào liên hệ.
-        if (findEntryByName(nameAddPhone) == null){
+        if (findEntryByName(entry.getName()) == null){
             return false;
         }
-        if (findEntryByName(nameAddPhone).getName().equals(nameAddPhone) ) {
-            for (int i = 0; i < findEntryByName(nameAddPhone).getPhoneNumber().size(); i++) {
-                numberAddPhone.add(0, findEntryByName(nameAddPhone).getPhoneNumber().get(i));// gán số cũ của liên hệ vào cùng số thêm.
+        if (findEntryByName(entry.getName()).getName().equals(entry.getName()) ) {
+            for (int i = 0; i < findEntryByName(entry.getName()).getPhoneNumber().size(); i++) {
+                entry.getPhoneNumber().add(0, findEntryByName(entry.getName()).getPhoneNumber().get(i));// gán số cũ của liên hệ vào cùng số thêm.
             }
-            findEntryByName(nameAddPhone).setPhoneNumber(numberAddPhone);
+            findEntryByName(entry.getName()).setPhoneNumber(entry.getPhoneNumber());
             return true;
         }
         return false;
@@ -71,10 +67,11 @@ public class PhoneBook {
         if (isDuplicateNumber(entryNumber)) {
             for (int i = 0; i < numberOfEntries; i++) {
                 for (int j = 0; j < findEntryByNumber(entryNumber).getPhoneNumber().size(); j++) {
-                    if (!(entryNumber.get(0).equals(phoneEntries[i].getPhoneNumber().get(j)))) {
-                        newNumber.add(1, phoneEntries[i].getPhoneNumber().get(j));//1 liên hệ có 2,3... số thì thêm những số k muốn sửa vào newNumber
-                    }
+                    newNumber.add(j+1, phoneEntries[i].getPhoneNumber().get(j));//1 liên hệ có 2,3... số thì thêm những số k muốn sửa vào newNumber
+                }
+                for (int j = 0; j < findEntryByNumber(entryNumber).getPhoneNumber().size(); j++) {
                     if (entryNumber.get(0).equals(findEntryByNumber(entryNumber).getPhoneNumber().get(j))) {
+                        newNumber.remove(j+1);
                         phoneEntries[i].setPhoneNumber(newNumber);
                         return true;
                     }
