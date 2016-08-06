@@ -4,7 +4,7 @@
 public abstract class Product {
     private String id;
     private String name;
-    private int price;
+    protected int price;
 
     public Product(String id, String name, int price) {
         this.id = id;
@@ -35,5 +35,6 @@ public abstract class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
     public abstract String toString();
 }

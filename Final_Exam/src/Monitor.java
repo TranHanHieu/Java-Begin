@@ -4,7 +4,7 @@
 public class Monitor extends Product {
     private String resolution;
 
-    public Monitor(String id, String name, int price,String resolution) {
+    public Monitor(String id, String name, int price, String resolution) {
         super(id, name, price);
         this.resolution = resolution;
     }

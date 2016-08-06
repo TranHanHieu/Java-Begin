@@ -4,7 +4,7 @@
 public class Cpu extends Product {
     private float freq;
 
-    public Cpu(String id, String name, int price,float freq) {
+    public Cpu(String id, String name, int price, float freq) {
         super(id, name, price);
         this.freq = freq;
     }
@@ -19,8 +19,6 @@ public class Cpu extends Product {
 
     @Override
     public String toString() {
-        return "Cpu{" +
-                "freq=" + freq +
-                '}';
+        return "Tên Cpu : " + getName() + "\nId: " + getId() + "\nPrice : " + getPrice() + "\nfreq : " + getFreq();
     }
 }

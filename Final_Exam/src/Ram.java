@@ -19,8 +19,6 @@ public class Ram extends Product {
 
     @Override
     public String toString() {
-        return "Ram{" +
-                "capacity=" + capacity +
-                '}';
+        return "Tên Ram : " + getName() + "\nId: " + getId() + "\nPrice : " + getPrice() + "\nCapacity : " + getCapacity();
     }
 }

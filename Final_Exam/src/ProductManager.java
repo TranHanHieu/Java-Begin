@@ -30,7 +30,7 @@ public class ProductManager {
 
     public Product findProduct(String productName) {
         for (int i = 0; i < listProduct.size(); i++) {
-            if (productName.equals(listProduct.get(i))) {
+            if (productName.equals(listProduct.get(i).getName())) {
                 return listProduct.get(i);
             }
         }
@@ -40,12 +40,12 @@ public class ProductManager {
     public void sortProductByName() {
         Product tempProduct = null;
         List<Product> listProduct1 = new ArrayList<>();
-        for (int i = 0; i < listProduct.size()-1; i++) {
-            for (int j = i+1; j < listProduct.size(); j++) {
+        for (int i = 0; i < listProduct.size() - 1; i++) {
+            for (int j = i + 1; j < listProduct.size(); j++) {
                 if (listProduct.get(i).getName().compareToIgnoreCase(listProduct.get(j).getName()) > 0) {
                     tempProduct = listProduct.get(i);
-                    listProduct.set(i,listProduct.get(j));
-                    listProduct.set(j,tempProduct);
+                    listProduct.set(i, listProduct.get(j));
+                    listProduct.set(j, tempProduct);
 
                 }
             }
@@ -54,24 +54,22 @@ public class ProductManager {
 
     public void sortProductByPrice() {
         Product tempProduct;
-        for (int i = 0; i < listProduct.size(); i++) {
-            for (int j = i+1;j<listProduct.size();j++) {
+        for (int i = 0; i < listProduct.size() - 1; i++) {
+            for (int j = i + 1; j < listProduct.size(); j++) {
                 if (listProduct.get(i).getPrice() > listProduct.get(j).getPrice()) {
                     tempProduct = listProduct.get(i);
-                    //listProduct.remove(i - 1);
-                    //listProduct.add(i - 1, listProduct.get(i));
                     listProduct.set(i, listProduct.get(j));
-                    //listProduct.remove(i);
-                    //listProduct.add(i, tempProduct);
                     listProduct.set(j, tempProduct);
                 }
             }
         }
     }
 
+
     public void showAllProduct() {
+
         for (int i = 0; i < listProduct.size(); i++) {
-            listProduct.get(i).toString();
+            System.out.println(listProduct.get(i).toString());
         }
     }
 }

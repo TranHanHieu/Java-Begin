@@ -23,16 +23,13 @@ public class Case extends Product {
 
     public Case(String id, String name, int price, Ram ram, Cpu cpu) {
         super(id, name, price);
-        this.setPrice((int)0.1*(ram.getPrice()+cpu.getPrice()));
+        this.price = price + (ram.getPrice() + cpu.getPrice()) + (int) (0.1 * (ram.getPrice() + cpu.getPrice()));
         this.ram = ram;
         this.cpu = cpu;
     }
 
     @Override
     public String toString() {
-        return "Case{" +
-                "ram=" + ram +
-                ", cpu=" + cpu +
-                '}';
+        return "Tên Case : " + getName() + "\n" + "Id: " + getId() + "\nPrice : " + Case.this.getPrice() + "\nCase bao gồm : " + "Ram " + ram.getName() + " và Cpu " + cpu.getName();
     }
 }
